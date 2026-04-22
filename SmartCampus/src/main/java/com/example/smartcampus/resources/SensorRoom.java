@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response;
 
 import com.example.smartcampus.exception.DataNotFoundException;
 import com.example.smartcampus.model.ErrorMessage;
+import com.example.smartcampus.exception.RoomNotEmptyException;
 
 /**
  *
@@ -68,6 +69,32 @@ public class SensorRoom {
     @Produces(MediaType.APPLICATION_JSON)
     public Room getRoomById(@PathParam("roomId") String id) {
         
+        return findRoomById(id);
+    }
+    
+    // Delete a room 
+    @DELETE
+    @Path("/{roomId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteRoom(@PathParam("roomId") String id) {
+        
+        //Retrieve the room
+        Room room = findRoomById(id);
+        
+        // Check whether the room is empty
+        if (room.getSensorIds() == null) {
+            throw new RoomNotEmptyException("Room cannot be deleted there beinc occupation");
+        }
+         
+        ROOMDAO.delete(id);
+        
+        return Response.status(Response.Status.OK).build();
+        
+    }
+    
+    
+    // Helper method to search room by id
+    private Room findRoomById(String id) {
         // Create an instance of the room class
         Room room = ROOMDAO.getById(id);
         
