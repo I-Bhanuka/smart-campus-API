@@ -77,10 +77,10 @@ public class GenericDAO <T extends BaseModel> {
     }
     
     // Delete item 
-    public void delete(int id) {
+    public void delete(String id) {
         
         synchronized(ITEMS) {
-//            ITEMS.removeIf(item -> item.getId() == id);
+            ITEMS.removeIf(item -> item.getId().equals(id));
         }
     }
     
