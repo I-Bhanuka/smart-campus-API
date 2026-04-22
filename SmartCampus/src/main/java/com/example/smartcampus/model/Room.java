@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Isith Bhanuka
  */
-public class Room {
+public class Room implements BaseModel{
     
     // Priavte attributes
     private String id;
@@ -32,10 +32,12 @@ public class Room {
     
     
     // Getter and Setter for Id
+    @Override
     public String getId() {
         return id; 
     }
     
+    @Override
     public void setId(String id) { 
         this.id = id; 
     }
