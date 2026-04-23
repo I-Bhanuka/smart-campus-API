@@ -12,6 +12,7 @@ public class SensorReading implements BaseModel {
     
     // Private attributes 
     private String id;
+    private String sensorId; // Sensor Id is needed for filteration 
     private long timestamp;
     private double value;
     
@@ -19,8 +20,9 @@ public class SensorReading implements BaseModel {
     public SensorReading() {}
 
     // All args constructor
-    public SensorReading(String id, long timestamp, double value) {
+    public SensorReading(String id, long timestamp, double value, String sensorId) {
         this.id = id;
+        this.sensorId = sensorId; 
         this.timestamp = timestamp;
         this.value = value;
     }
@@ -34,7 +36,18 @@ public class SensorReading implements BaseModel {
     public void setId(String id) {
         this.id = id;
     }
+    
+    
+    // Getter and Setter sensorId
+    public String getSensorId() {
+        return sensorId;
+    }
 
+    public void setSensorId(String sensorId) {
+        this.sensorId = sensorId;
+    }
+
+    
     
     // Getter and Setter timestamp
     public long getTimestamp() {
