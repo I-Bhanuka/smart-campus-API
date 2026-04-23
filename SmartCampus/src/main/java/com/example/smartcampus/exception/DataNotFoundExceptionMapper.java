@@ -8,6 +8,7 @@ import com.example.smartcampus.model.ErrorMessage;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
+import javax.ws.rs.core.MediaType;
 
 /**
  *
@@ -32,6 +33,7 @@ public class DataNotFoundExceptionMapper implements
         // Build the response entity
         return Response.status(Response.Status.NOT_FOUND)
                 .entity(errorMessage)
+                .type(MediaType.APPLICATION_JSON)
                 .build();
         
     }
