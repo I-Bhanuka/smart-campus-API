@@ -16,6 +16,7 @@ import com.example.smartcampus.exception.LinkedResourceNotFoundExceptionMapper;
 import com.example.smartcampus.exception.RoomNotEmptyExceptionMapper;
 import com.example.smartcampus.exception.SensorUnavailableExceptionMapper;
 import com.example.smartcampus.exception.GenericExceptionMapper;
+import com.example.smartcampus.filter.LoginFilter;
 
 /**
  *
@@ -36,11 +37,13 @@ public class SmartCampusApplication extends Application {
         Set<Class<?>> classes = new HashSet<>();
         classes.add(DiscoveryResource.class);
         classes.add(SensorRoom.class);
+        classes.add(SensorResource.class);
         classes.add(LinkedResourceNotFoundExceptionMapper.class);
         classes.add(RoomNotEmptyExceptionMapper.class);
         classes.add(SensorUnavailableExceptionMapper.class);
         classes.add(SensorUnavailableExceptionMapper.class);
         classes.add(GenericExceptionMapper.class);
+        classes.add(LoginFilter.class);
         return classes;
     }
     
