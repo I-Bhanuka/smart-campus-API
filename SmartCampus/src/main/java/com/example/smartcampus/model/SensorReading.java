@@ -8,7 +8,7 @@ package com.example.smartcampus.model;
  *
  * @author Isith Bhanuka
  */
-public class SensorReading {
+public class SensorReading implements BaseModel {
     
     // Private attributes 
     private String id;
