@@ -39,11 +39,11 @@ public class MockDatabase {
         ROOM.add(r4);
 
         // Sensors 
-        SENSOR.add(new Sensor("S1", "Temperature", "active", 22.5, "R1"));
-        SENSOR.add(new Sensor("S2", "Humidity",    "active", 60.0, "R1"));
-        SENSOR.add(new Sensor("S3", "Temperature", "active", 24.0, "R2"));
-        SENSOR.add(new Sensor("S4", "Motion",      "inactive", 0.0, "R2"));
-        SENSOR.add(new Sensor("S5", "CO2",         "active", 412.0, "R3"));
+        SENSOR.add(new Sensor("S1", "Temperature", "ACTIVE", 22.5, "R1"));
+        SENSOR.add(new Sensor("S2", "Humidity", "ACTIVE", 60.0, "R1"));
+        SENSOR.add(new Sensor("S3", "Temperature", "ACTIVE", 24.0, "R2"));
+        SENSOR.add(new Sensor("S4", "Motion", "OFFLINE", 0.0, "R2"));
+        SENSOR.add(new Sensor("S5", "CO2", "MAINTENANCE", 412.0, "R3"));
 
         // Readings
         READINGS.add(new SensorReading("RD1", "S1", 1700000001L, 22.5));

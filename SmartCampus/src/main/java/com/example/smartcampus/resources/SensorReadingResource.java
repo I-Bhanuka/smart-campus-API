@@ -13,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import com.example.smartcampus.exception.LinkedResourceNotFoundException;
+import com.example.smartcampus.exception.SensorUnavailableException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -57,7 +58,11 @@ public class SensorReadingResource {
         
         if (sensor == null) {
             throw new LinkedResourceNotFoundException("Sensor not found with id: " + sensorId);
-    }
+        }
+        
+        if (sensor.getStatus().equals("MAINTENANCE")) {
+            throw new SensorUnavailableException("Sensor is under maintainance!");
+        }
         
         // Link the reading to THIS sensor
         reading.setSensorId(sensorId);

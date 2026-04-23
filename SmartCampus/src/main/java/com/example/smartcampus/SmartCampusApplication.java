@@ -12,8 +12,10 @@ import java.util.Set; // Used to have unique resource classes
 import com.example.smartcampus.resources.DiscoveryResource;
 import com.example.smartcampus.resources.SensorResource;
 import com.example.smartcampus.resources.SensorRoom;
-import com.example.smartcampus.exception.LinkedResourceNotFoundException;
+import com.example.smartcampus.exception.LinkedResourceNotFoundExceptionMapper;
 import com.example.smartcampus.exception.RoomNotEmptyExceptionMapper;
+import com.example.smartcampus.exception.SensorUnavailableExceptionMapper;
+import com.example.smartcampus.exception.GenericExceptionMapper;
 
 /**
  *
@@ -34,9 +36,11 @@ public class SmartCampusApplication extends Application {
         Set<Class<?>> classes = new HashSet<>();
         classes.add(DiscoveryResource.class);
         classes.add(SensorRoom.class);
-        classes.add(LinkedResourceNotFoundException.class);
+        classes.add(LinkedResourceNotFoundExceptionMapper.class);
         classes.add(RoomNotEmptyExceptionMapper.class);
-        classes.add(SensorResource.class);
+        classes.add(SensorUnavailableExceptionMapper.class);
+        classes.add(SensorUnavailableExceptionMapper.class);
+        classes.add(GenericExceptionMapper.class);
         return classes;
     }
     
