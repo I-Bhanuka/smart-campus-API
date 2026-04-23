@@ -12,7 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.example.smartcampus.exception.DataNotFoundException;
+import com.example.smartcampus.exception.LinkedResourceNotFoundException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -37,7 +37,7 @@ public class SensorResource {
         // Check whether the room exists
         String roomId = sensor.getRoomId();
         if (ROOMDAO.getById(roomId) == null) {
-            throw new DataNotFoundException("Room not found with the given ID");
+            throw new LinkedResourceNotFoundException("Room not found with the given ID");
         }
         
         // Save the sensor object

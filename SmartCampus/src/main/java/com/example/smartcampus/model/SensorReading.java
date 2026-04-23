@@ -20,7 +20,7 @@ public class SensorReading implements BaseModel {
     public SensorReading() {}
 
     // All args constructor
-    public SensorReading(String id, long timestamp, double value, String sensorId) {
+    public SensorReading(String id, String sensorId, long timestamp, double value) {
         this.id = id;
         this.sensorId = sensorId; 
         this.timestamp = timestamp;

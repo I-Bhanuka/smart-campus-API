@@ -12,7 +12,7 @@ import java.util.List;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.example.smartcampus.exception.DataNotFoundException;
+import com.example.smartcampus.exception.LinkedResourceNotFoundException;
 import com.example.smartcampus.model.ErrorMessage;
 import com.example.smartcampus.exception.RoomNotEmptyException;
 
@@ -82,8 +82,8 @@ public class SensorRoom {
         Room room = findRoomById(id);
         
         // Check whether the room is empty
-        if (room.getSensorIds() == null) {
-            throw new RoomNotEmptyException("Room cannot be deleted there beinc occupation");
+        if (room.getSensorIds() != null) {
+            throw new RoomNotEmptyException("Room cannot be deleted there are active sensors assigned!");
         }
          
         ROOMDAO.delete(id);
@@ -100,7 +100,7 @@ public class SensorRoom {
         
         // Checking if the response is null
         if (room == null) {
-            throw new DataNotFoundException("Room not found with the id: " + id);
+            throw new LinkedResourceNotFoundException("Room not found with the id: " + id);
         }
         
         return room;

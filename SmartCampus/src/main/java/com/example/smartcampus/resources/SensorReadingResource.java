@@ -12,7 +12,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.example.smartcampus.exception.DataNotFoundException;
+import com.example.smartcampus.exception.LinkedResourceNotFoundException;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class SensorReadingResource {
         Sensor sensor = SENSORDAO.getById(sensorId);
         
         if (sensor == null) {
-            throw new DataNotFoundException("Sensor not found with id: " + sensorId);
+            throw new LinkedResourceNotFoundException("Sensor not found with id: " + sensorId);
     }
         
         // Link the reading to THIS sensor

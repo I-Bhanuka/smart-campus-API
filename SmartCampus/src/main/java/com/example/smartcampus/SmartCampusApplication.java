@@ -10,8 +10,10 @@ import java.util.HashSet; // Implementation of Set interface
 import java.util.Set; // Used to have unique resource classes
 
 import com.example.smartcampus.resources.DiscoveryResource;
+import com.example.smartcampus.resources.SensorResource;
 import com.example.smartcampus.resources.SensorRoom;
-import com.example.smartcampus.exception.DataNotFoundException;
+import com.example.smartcampus.exception.LinkedResourceNotFoundException;
+import com.example.smartcampus.exception.RoomNotEmptyExceptionMapper;
 
 /**
  *
@@ -32,7 +34,9 @@ public class SmartCampusApplication extends Application {
         Set<Class<?>> classes = new HashSet<>();
         classes.add(DiscoveryResource.class);
         classes.add(SensorRoom.class);
-        classes.add(DataNotFoundException.class);
+        classes.add(LinkedResourceNotFoundException.class);
+        classes.add(RoomNotEmptyExceptionMapper.class);
+        classes.add(SensorResource.class);
         return classes;
     }
     
