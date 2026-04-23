@@ -5,6 +5,7 @@
 package com.example.smartcampus.exception;
 
 import com.example.smartcampus.model.ErrorMessage;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
@@ -31,6 +32,7 @@ public class RoomNotEmptyExceptionMapper implements
         // Build the response entity
         return Response.status(Response.Status.CONFLICT)
                 .entity(errorMessage)
+                .type(MediaType.APPLICATION_JSON)
                 .build();
         
     }
