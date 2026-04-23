@@ -45,15 +45,17 @@ public class SensorRoom {
         
         // Check whether name and id is provided in the request body
         if (room.getId() == null || room.getName() == null) {
-            return Response.status(Response.Status.EXPECTATION_FAILED)
-                    .entity(new ErrorMessage("Room already exists!", 409, "Room IDs should be unique. Cannot have rooms with the same id!"))
+            return Response.status(Response.Status.BAD_REQUEST)
+                    .entity(new ErrorMessage("Room ID and Name is required!", 400, 
+                        "Room ID and Name must be provided in the request body!"))
                     .build();
         }
         
         // Checking if there is a room with the same id
         if (ROOMDAO.getById(room.getId()) != null) {
-            return Response.status(Response.Status.BAD_REQUEST)
-                    .entity(new ErrorMessage("Room ID and Name is required!", 400, "Room ID and Name must be provided in the request body to create a room!"))
+            return Response.status(Response.Status.CONFLICT)
+                    .entity(new ErrorMessage("Room already exists!", 409,
+                            "Room IDs should be unique. Cannot have rooms with the same id!"))
                     .build();
         }
         
@@ -82,7 +84,7 @@ public class SensorRoom {
         Room room = findRoomById(id);
         
         // Check whether the room is empty
-        if (room.getSensorIds() != null) {
+        if (room.getSensorIds().isEmpty()) {
             throw new RoomNotEmptyException("Room cannot be deleted there are active sensors assigned!");
         }
          

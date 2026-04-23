@@ -80,7 +80,7 @@ public class SensorResource {
     // Sub-resource LOCATOR 
     // Has @Path but NO @GET/@POST/@DELETE
     // Just returns an instance of the child class
-    @Path("{sensorId}/read")
+    @Path("{sensorId}/readings")
     public SensorReadingResource getSensorReadingResource(@PathParam("sensorId") String sensorId) {
         
         // Jersey takes this object and looks inside it for @GET, @POST

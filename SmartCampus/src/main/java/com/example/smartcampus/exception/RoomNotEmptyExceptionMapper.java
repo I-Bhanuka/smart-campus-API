@@ -16,7 +16,6 @@ import javax.ws.rs.core.Response;
  * @author Isith Bhanuka
  */
 
-@Provider
 public class RoomNotEmptyExceptionMapper implements
         ExceptionMapper<RoomNotEmptyException>{
     

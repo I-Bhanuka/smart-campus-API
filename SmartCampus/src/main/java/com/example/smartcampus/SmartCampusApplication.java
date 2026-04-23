@@ -41,7 +41,6 @@ public class SmartCampusApplication extends Application {
         classes.add(LinkedResourceNotFoundExceptionMapper.class);
         classes.add(RoomNotEmptyExceptionMapper.class);
         classes.add(SensorUnavailableExceptionMapper.class);
-        classes.add(SensorUnavailableExceptionMapper.class);
         classes.add(GenericExceptionMapper.class);
         classes.add(LoginFilter.class);
         return classes;
