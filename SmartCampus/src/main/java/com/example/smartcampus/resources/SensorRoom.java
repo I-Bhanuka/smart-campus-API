@@ -84,7 +84,7 @@ public class SensorRoom {
         Room room = findRoomById(id);
         
         // Check whether the room is empty
-        if (room.getSensorIds().isEmpty()) {
+        if (!room.getSensorIds().isEmpty()) {
             throw new RoomNotEmptyException("Room cannot be deleted there are active sensors assigned!");
         }
          
